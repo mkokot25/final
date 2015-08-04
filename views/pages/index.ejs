@@ -57,6 +57,16 @@
 			$('#modal').modal('hide');
             map.getCredentials(MakeGeocodeRequest);
             
+            while(true){
+				if(!typing){
+					window.setInterval(function(){ 
+         				if(lastKnown.length > 0 && typing == false){
+         				refresh(lastKnown);
+         				};
+         			} , 10000);
+         		}
+         	};
+            
          }
 
          function MakeGeocodeRequest(credentials)
