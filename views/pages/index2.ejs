@@ -142,7 +142,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     		for (i = 0; i < obj.items.length; i++) 
     		{ 
     		
-			    	
+			try{   	
     		var source = obj.items[i].source;
     		var date = obj.items[i].publishDate;
     		var title = obj.items[i].title;
@@ -187,6 +187,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     		
     		$("#container"+i).append(main_image1).append(logo3).after(button);
 			
+    		}
     		}
 		}
 		
