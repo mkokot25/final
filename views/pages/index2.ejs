@@ -29,7 +29,7 @@ function initialize() {
 }
 
 function insertSpinner(){
-
+		console.log("spinner beginning");
 		$(".spinner").remove();
          var opts = {
   		lines: 13 // The number of lines to draw
@@ -56,6 +56,7 @@ function insertSpinner(){
 		
 		var target = document.getElementById('map-canvas')
 		var spinner = new Spinner(opts).spin(target);
+		console.log("spinner inserted");
 }
 
 var iterations = 0;
