@@ -20,7 +20,6 @@
          {
             // Initialize the map
             map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),{credentials:"Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx", mapTypeId:Microsoft.Maps.MapTypeId.road}); 
-
 			
          }
 
@@ -104,7 +103,6 @@
                var location = new Microsoft.Maps.Location(result.resourceSets[0].resources[0].point.coordinates[0], result.resourceSets[0].resources[0].point.coordinates[1]);
                var pushpin = new Microsoft.Maps.Pushpin(location, {icon: 'http://i.imgur.com/ALMEPWD.png', width: 60, height: 60, draggable: false}); 
 				
-				
 			
 				var MM = Microsoft.Maps;
 				if(length*.45 > 5){
@@ -119,9 +117,15 @@
 				console.log("radius: ",radius);
 				console.log("length: ",length*.45);
 				
+				var reverseGeocodeAddress =	"http://dev.virtualearth.net/REST/v1/Locations/"+lat+","+lon+"?key=Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx";	
+				reverse = httpGet(reverseGeocodeAddress);
+				console.log(reverse);
+				
+				
+				
 				var R = 6371;
-				var backgroundColor = new Microsoft.Maps.Color(10, 0, 0, 255);
-				var borderColor = new Microsoft.Maps.Color(150, 255, 255, 255);
+				var backgroundColor = new Microsoft.Maps.Color(100, 0, 0, 255);
+				var borderColor = new Microsoft.Maps.Color(235, 255, 255, 255);
 
 				var lat = (lat * Math.PI) / 180;     
 				var lon = (lon * Math.PI) / 180;
@@ -140,10 +144,10 @@
             		circlePoints.push(p2);
 				}
 				
+				var polygon = new MM.Polygon(circlePoints, { fillColor: backgroundColor, strokeColor: borderColor, strokeThickness: 5 });
 
-				var polygon = new MM.Polygon(circlePoints, { fillColor: backgroundColor, strokeColor: borderColor, strokeThickness: 1 });
-
-				map.entities.push(polygon);
+				map.entities.push(polygon);		
+				
     		
             }else{
             $('#modal').modal('show');
