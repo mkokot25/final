@@ -61,7 +61,7 @@
          		if(lastKnown.length > 0 && typing == false){
          			refresh(lastKnown);
          			};
-         			} , 10000);
+         			} , 20000);
          	}
 
          function MakeGeocodeRequest(credentials)
@@ -103,7 +103,33 @@
                var location = new Microsoft.Maps.Location(result.resourceSets[0].resources[0].point.coordinates[0], result.resourceSets[0].resources[0].point.coordinates[1]);
                var pushpin = new Microsoft.Maps.Pushpin(location, {icon: 'http://i.imgur.com/ALMEPWD.png', width: 60, height: 60, draggable: false}); 
 				
-               map.entities.push(pushpin);
+			
+				
+				var radius = length*20%;     
+				var R = 6371;
+				var backgroundColor = new Microsoft.Maps.Color(10, 100, 0, 0);
+				var borderColor = new Microsoft.Maps.Color(150, 200, 0, 0);
+
+				var latitude = (lat * Math.PI) / 180;     
+				var longitude = (lon * Math.PI) / 180;
+				var d = parseFloat(radius) / R;
+				var circlePoints = new Array();
+				
+				
+				for (x = 0; x <= 360; x += 5) {
+    				var p2 = new MM.Location(0, 0);
+    				brng = x * Math.PI / 180;
+    				p2.latitude = Math.asin(Math.sin(lat) * Math.cos(d) + Math.cos(lat) * Math.sin(d) * Math.cos(brng));
+
+    				p2.longitude = ((lon + Math.atan2(Math.sin(brng) * Math.sin(d) * Math.cos(lat), 
+                     Math.cos(d) - Math.sin(lat) * Math.sin(p2.latitude))) * 180) / Math.PI;
+            		p2.latitude = (p2.latitude * 180) / Math.PI;
+            		circlePoints.push(p2);
+				}
+
+				var polygon = new MM.Polygon(circlePoints, { fillColor: backgroundColor, strokeColor: borderColor, strokeThickness: 1 });
+
+				map.entities.push(polygon);
 
    			refresh([lat,lon]);
     		
