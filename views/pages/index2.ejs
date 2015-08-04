@@ -63,11 +63,8 @@ var iterations = 0;
 
 function codeAddress() {
 
- 		insertSpinner();
-			
-		//$('#modal').modal('hide');
-
-
+ 	insertSpinner();
+		
 	if(iterations > 0){
 	removeLine();
 	}
@@ -93,18 +90,20 @@ function codeAddress() {
     
     iterations = iterations + 1;
     refresh([cityCircle.getCenter().lat(),cityCircle.getCenter().lng()],cityCircle.getRadius()*0.00062137);
+    
      google.maps.event.addListener(cityCircle, 'radius_changed', function() {
+     insertSpinner();
       	miles = cityCircle.getRadius()*0.00062137;
   		if(miles > 5){
   			removeLine();
   			codeAddress();
     	};
     	console.log(miles);
-    	insertSpinner();
     	refresh([cityCircle.getCenter().lat(),cityCircle.getCenter().lng()],miles);
   		});
   		
   	  google.maps.event.addListener(cityCircle, 'center_changed', function() {
+  	  insertSpinner();
       	 console.log("lat ",cityCircle.getCenter().lat());
       	 console.log('lng', cityCircle.getCenter().lng());
       	insertSpinner();
