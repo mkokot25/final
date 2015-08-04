@@ -126,6 +126,8 @@
             		p2.latitude = (p2.latitude * 180) / Math.PI;
             		circlePoints.push(p2);
 				}
+				
+				console.log(circlePoints);
 
 				var polygon = new MM.Polygon(circlePoints, { fillColor: backgroundColor, strokeColor: borderColor, strokeThickness: 1 });
 
