@@ -167,6 +167,7 @@
 		function httpGet(theUrl)
 		{
    		var xmlHttp = new XMLHttpRequest();
+   		xmlhttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
     	xmlHttp.open( "GET", theUrl, false );
     	xmlHttp.send( null );
     
