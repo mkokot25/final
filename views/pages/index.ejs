@@ -13,7 +13,7 @@
          var map = null;
          var lastKnown = []
         var typing = false; 
-        
+        var Universal_Radius = 5.0;
         
  
          function GetMap()
@@ -59,7 +59,7 @@
             
 			window.setInterval(function(){ 
          		if(lastKnown.length > 0 && typing == false){
-         			refresh(lastKnown);
+         			refresh(lastKnown, Universal_Radius);
          			};
          			} , 20000);
          	}
@@ -104,20 +104,24 @@
                var location = new Microsoft.Maps.Location(result.resourceSets[0].resources[0].point.coordinates[0], result.resourceSets[0].resources[0].point.coordinates[1]);
                var pushpin = new Microsoft.Maps.Pushpin(location, {icon: 'http://i.imgur.com/ALMEPWD.png', width: 60, height: 60, draggable: false}); 
 				
-				refresh([lat,lon]);
+				
 			
 				var MM = Microsoft.Maps;
 				if(length*.45 > 5){
 				var radius = 5.0;
+				refresh([lat,lon], radius);
 				}else{
 				var radius = length*.45;
+				refresh([lat,lon], length*.45);
 				}
+				Universal_Radius = radius;
+				
 				console.log("radius: ",radius);
 				console.log("length: ",length*.45);
 				
 				var R = 6371;
-				var backgroundColor = new Microsoft.Maps.Color(10, 100, 0, 0);
-				var borderColor = new Microsoft.Maps.Color(150, 200, 0, 0);
+				var backgroundColor = new Microsoft.Maps.Color(10, 0, 0, 255);
+				var borderColor = new Microsoft.Maps.Color(150, 255, 255, 255);
 
 				var lat = (lat * Math.PI) / 180;     
 				var lon = (lon * Math.PI) / 180;
@@ -165,13 +169,13 @@
     	return xmlHttp.responseText;
 		}
 		
-		function refresh(lastKnown)
+		function refresh(lastKnown, radius)
 		{
 		
 		lat = lastKnown[0];
 		lon = lastKnown[1];
 		
-		 var url = "https://api.geofeedia.com/v1/search/latlon/"+lat+","+lon+",5.0?appId=3c7f0f3c&appKey=d71ba6aa64fd467bb69f7d39125012e1";
+		 var url = "https://api.geofeedia.com/v1/search/latlon/"+lat+","+lon+","+radius+"?appId=3c7f0f3c&appKey=d71ba6aa64fd467bb69f7d39125012e1";
     
     		var response = httpGet(url);
     		obj = JSON.parse(response);
