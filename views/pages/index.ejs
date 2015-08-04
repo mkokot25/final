@@ -65,7 +65,6 @@
 
          function MakeGeocodeRequest(credentials)
          {
-
             var geocodeRequest = "http://dev.virtualearth.net/REST/v1/Locations?query=" + encodeURI(document.getElementById('txtQuery').value) + "&output=json&jsonp=GeocodeCallback&key=" + credentials;
             CallRestService(geocodeRequest);
          }
@@ -119,7 +118,7 @@
 				
 				try{
 				var reverseGeocodeAddress =	"http://dev.virtualearth.net/REST/v1/Locations/"+lat+","+lon+"?key=Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx";	
-				reverse = httpGet(reverseGeocodeAddress);
+				reverse = CallRestService(reverseGeocodeAddress);
 				console.log(reverse);
 				}catch(err){
 				
@@ -171,7 +170,7 @@
 		function httpGet(theUrl)
 		{
    		var xmlHttp = new XMLHttpRequest();
-   		xmlHttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
+   		//xmlHttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
     	xmlHttp.open( "GET", theUrl, false );
     	xmlHttp.send( null );
     
