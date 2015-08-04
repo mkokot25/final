@@ -117,9 +117,13 @@
 				console.log("radius: ",radius);
 				console.log("length: ",length*.45);
 				
+				try{
 				var reverseGeocodeAddress =	"http://dev.virtualearth.net/REST/v1/Locations/"+lat+","+lon+"?key=Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx";	
 				reverse = httpGet(reverseGeocodeAddress);
 				console.log(reverse);
+				}catch(err){
+				
+				}
 				
 				
 				
@@ -167,7 +171,7 @@
 		function httpGet(theUrl)
 		{
    		var xmlHttp = new XMLHttpRequest();
-   		xmlhttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
+   		xmlHttp.setRequestHeader("Access-Control-Allow-Origin:", "*");
     	xmlHttp.open( "GET", theUrl, false );
     	xmlHttp.send( null );
     
