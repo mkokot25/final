@@ -91,6 +91,7 @@
                    result.resourceSets[0].resources.length > 0) 
             {
                // Set the map view using the returned bounding box
+               
                var bbox = result.resourceSets[0].resources[0].bbox;
                var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(new Microsoft.Maps.Location(bbox[0], bbox[1]), new Microsoft.Maps.Location(bbox[2], bbox[3]));
                map.setView({ bounds: viewBoundaries});
@@ -103,6 +104,7 @@
                var location = new Microsoft.Maps.Location(result.resourceSets[0].resources[0].point.coordinates[0], result.resourceSets[0].resources[0].point.coordinates[1]);
                var pushpin = new Microsoft.Maps.Pushpin(location, {icon: 'http://i.imgur.com/ALMEPWD.png', width: 60, height: 60, draggable: false}); 
 				
+				refresh([lat,lon]);
 			
 				var MM = Microsoft.Maps;
 				var radius = 1;     
@@ -110,8 +112,8 @@
 				var backgroundColor = new Microsoft.Maps.Color(10, 100, 0, 0);
 				var borderColor = new Microsoft.Maps.Color(150, 200, 0, 0);
 
-				var latitude = (lat * Math.PI) / 180;     
-				var longitude = (lon * Math.PI) / 180;
+				var lat = (lat * Math.PI) / 180;     
+				var lon = (lon * Math.PI) / 180;
 				var d = parseFloat(radius) / R;
 				var circlePoints = new Array();
 				
@@ -127,13 +129,10 @@
             		circlePoints.push(p2);
 				}
 				
-				console.log(circlePoints);
 
 				var polygon = new MM.Polygon(circlePoints, { fillColor: backgroundColor, strokeColor: borderColor, strokeThickness: 1 });
 
 				map.entities.push(polygon);
-
-   			refresh([lat,lon]);
     		
             }else{
             $('#modal').modal('show');
