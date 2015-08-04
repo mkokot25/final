@@ -152,6 +152,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
     		}catch(err){
     		var name = "Name was unidentified";
     		}
+    		try{
+    		var post_link = obj.items[i].url;
+    		}catch(err){
+    		var post_link = "#";
+    		}
     		var name_link = obj.items[i].author.url;
     		var post_link = obj.items[i].url;
     		var media_type = obj.items[i].mediaItems[0].type;
