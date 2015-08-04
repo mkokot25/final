@@ -157,8 +157,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
     		}catch(err){
     		var post_link = "#";
     		}
+    		try{
     		var name_link = obj.items[i].author.url;
-    		var post_link = obj.items[i].url;
+    		}catch(err){
+    		var name_link = "#";
+    		}
     		var media_type = obj.items[i].mediaItems[0].type;
     		var image = obj.items[i].mediaItems[0].media[0].thumbnail.url;
     		var lat = obj.items[i].latitude;
