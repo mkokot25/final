@@ -1,0 +1,80 @@
+
+
+.container{
+    height: 400px;
+    width: 90%;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: white;
+}
+
+.firstcell{
+    height: 215px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.box{
+    height: 320px;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: black;
+}
+
+
+.box2{ 
+	height: 75px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	overflow: scroll;
+	margin-bottom: 20px;
+}
+
+.box3 { 
+	margin-top: 20px;
+	height: 50px;
+}
+
+
+.main_image{
+ display : block;
+    margin : auto;
+    max-width:300px;
+    width: auto;
+    height: auto;
+}
+
+.logo { 
+        margin-top:-5px;
+        width: auto;
+        height: auto;
+        max-height: 30px;
+        max-width: 30px;
+}
+
+.userstamp{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	float: right;
+}
+
+#entire{
+background-color: #E9E9E9;
+}
+
+body{
+background-color: #E9E9E9;
+}
+
+.toProfile{
+
+width: 100%;
+color:white;
+margin-bottom:10px;'
+
+}
+
+
+
+
