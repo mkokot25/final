@@ -19,28 +19,22 @@
         
 		JSONTest = function() {
 
-    var resultDiv = $("#resultDivContainer");
+    	var http = new XMLHttpRequest();
+		var url = "get_data.php";
+		var params = "lorem=ipsum&name=binny";
+http.open("POST", url, true);
 
-    $.ajax({
-        url: "https://app.geofeedia.com/internal/v1/auth",
-        type: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        data: { username: "michael.kokot@geofeedia.com", password:"d1vm2Qip"},
-        success: function (result) {
-            switch (result) {
-                case true:
-                    processResponse(result);
-                    console.log("we made it");
-                    break;
-                default:
-                    resultDiv.html(result);
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-        }
-    });
+//Send the proper header information along with the request
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+http.setRequestHeader("Content-length", params.length);
+http.setRequestHeader("Connection", "close");
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+    }
+}
+http.send(params);
 };
 
  
@@ -309,12 +303,7 @@ hsp.init({apiKey:"e2weulwolrsw0ocwc404k4o8k3icmckml5k"});
 <script src="https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js">
 </script> 
 
-<h1>My jQuery JSON Web Page</h1>
 
-<div id="resultDivContainer"></div>
-
-<button type="button" onclick="JSONTest()">JSON</button>
-   
    
   <div class="modal fade" id="modal">
   <div class="modal-dialog">
