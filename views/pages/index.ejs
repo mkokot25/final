@@ -19,20 +19,21 @@
         
 		JSONTest = function() {
 
-    	var http = new XMLHttpRequest();
-		var url = "https://app.geofeedia.com/internal/v1/auth";
-		var params = "username=michael.kokot@geofeedia.com&password=d1vm2Qip";
-		http.open("POST", url, true);
-
-		//Send the proper header information along with the request
-		http.setRequestHeader("Content-Type", "application/json");
-
-		http.onreadystatechange = function() {//Call a function when the state changes.
-    		if(http.readyState == 4 && http.status == 200) {
-        		alert(http.responseText);
-    		}
-		}
-		http.send(params);
+    	$.ajax({
+    		contentType: 'application/json',
+    		data: {"username": "michael.geofeedia@geofeedia.com","password":"d1vm2Qip"},
+    		headers: {'Content-Type':'application/json'},
+    		dataType: 'json',
+    		success: function(data){
+        		app.log("device control succeeded");
+    		},
+    		error: function(){
+        		app.log("Device control failed");
+    		},
+    		processData: false,
+    		type: 'POST',
+    		url: 'https://app.geofeedia.com/internal/v1/auth'
+		});
 		};
 
  
