@@ -15,6 +15,34 @@
         var typing = false; 
         var Universal_Radius = 5.0;
         
+        
+        
+		JSONTest = function() {
+
+    var resultDiv = $("#resultDivContainer");
+
+    $.ajax({
+        url: "https://app.geofeedia.com/internal/v1/auth",
+        type: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        data: { username: "michael.kokot@geofeedia.com", password:"d1vm2Qip"},
+        success: function (result) {
+            switch (result) {
+                case true:
+                    processResponse(result);
+                    console.log("we made it");
+                    break;
+                default:
+                    resultDiv.html(result);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+        }
+    });
+};
+
  
          function GetMap()
          {
@@ -72,6 +100,7 @@
          function GeocodeCallback(result) 
          {
          	try{
+         	console.log(result);
 			var lat = result.resourceSets[0].resources[0].point.coordinates[0]
 			var lon = result.resourceSets[0].resources[0].point.coordinates[1]
 			lastKnown = [lat,lon];
@@ -115,16 +144,6 @@
 				
 				console.log("radius: ",radius);
 				console.log("length: ",length*.45);
-				
-				try{
-				var reverseGeocodeAddress =	"http://dev.virtualearth.net/REST/v1/Locations/"+lat+","+lon+"?key=Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx";	
-				reverse = CallRestService(reverseGeocodeAddress);
-				console.log(reverse);
-				}catch(err){
-				
-				}
-				
-				
 				
 				var R = 6371;
 				var backgroundColor = new Microsoft.Maps.Color(100, 0, 0, 255);
@@ -289,6 +308,12 @@ hsp.init({apiKey:"e2weulwolrsw0ocwc404k4o8k3icmckml5k"});
 	
 <script src="https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js">
 </script> 
+
+<h1>My jQuery JSON Web Page</h1>
+
+<div id="resultDivContainer"></div>
+
+<button type="button" onclick="JSONTest()">JSON</button>
    
    
   <div class="modal fade" id="modal">
