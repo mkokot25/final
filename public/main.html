@@ -1,6 +1,6 @@
  <script type='text/javascript' src='/bootstrap.js'></script>
 
-      <div id='mapDiv' style='position:relative; width:100%; height:400px;'></div>
+      <div id='mapDiv' style='position:relative; width:100%; height:400px;'  onload="GetMap();"></div>
       <div class='searchInputs' id='searchInputs'>
       		<input id='txtQuery' type='text' value='Portland' onkeypress='isTyping()'/>
       		<input type='button'  type='button' class='btn btn-primary' value='Geocode' onclick='ClickGeocode()' style='margin-bottom:10px;'/>    
