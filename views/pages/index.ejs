@@ -236,13 +236,14 @@
     		}
     		
 
-    		$("#geo").append("<div class='container' id='container"+ i +"'></div>");
-    		button = "<a href='"+post_link+"' target='_blank'><button type='button' class='btn btn-primary toProfile' style='margin-bottom:10px;'>Comment</button></a>";
-    		
-    		main_image1 = "<div class='box'><div class='firstcell'><img class='main_image' src='"+image+"' alt=''/></div><div class='content'><div class='box2'><p>" + title + "</p></div></div></div>";
-    		logo3 = "<div class='content'><div class='box3'><img class='logo' src='" + logo + "'/><div class='userstamp'><a href='"+name_link+"' target='_blank'>"+ name + "</a><br/>"+ date +"</div></div></div>";
-    		
-    		$("#container"+i).append(main_image1).append(logo3).after(button);
+
+			var container = "<div class='container' id='container"+ i +"'></div>";
+			var main_image = "<div class='main_image'><img src='"+image+"' height='250px' width='100%'></img></div>";
+			var title = "<div class='box2'> "+ title +"</div>"
+			var userInfo = "<div class='line-separator'><br/><div class='box3'> "+name+" <br/> "+date+" <div class='datasource'><img src='http://connectedradio.livesircuit.com/wp-content/uploads/2014/08/instagram-icon-small.png' alt='Comment on post.' style='width:45px;height:45px;border:0;' ></img></div><div class='comment'><a href='www.instagram.com'><img src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/pencil.png' style='width:30px;height:30px;border:0;'/></a></div></div></div>";
+
+    		$("#geo").append(container);
+    		$("#container"+i).append(main_image).append(title).append(userInfo);
 			
     		}catch(err){
     		
@@ -278,21 +279,38 @@
         	var password = $("#inputPassword").val();
     		console.log(password);
     		console.log(email);
-    		if(email == 'mkokot@indiana.edu' && password == 'sax'){
-    			alert("You made it");
-    			$('body').append("<div id='identification' style='display:none;'>michael</div>");
+    		var identity = getCookie("identity");
+    		if(identity.length > 0){
     			return true;
     		}else{
-    			var test = $("#identification").text();
-    			if(typeof test === undefined){
-    				alert("Enter your credentials");
-    		    	return false;
-    		    }else{
-    		    return false;
-    		    }
+    			if(email == 'mkokot@indiana.edu' && password == 'sax'){
+    				alert("You made it");
+    				setCookie("email",email,10);
+    				return true;
+    			}else{
+    				return false;
+        		}
         	}
         };
-		
+        
+        function setCookie(cname, cvalue, exdays) {
+    		var d = new Date();
+    		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    		var expires = "expires="+d.toUTCString();
+    		document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+        
+        function getCookie(cname) {
+   			var name = cname + "=";
+    		var ca = document.cookie.split(';');
+    		for(var i=0; i<ca.length; i++) {
+        		var c = ca[i];
+        		while (c.charAt(0)==' ') c = c.substring(1);
+        		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    	}
+    	return "";
+		}
+        
       </script>
       
    </head>
