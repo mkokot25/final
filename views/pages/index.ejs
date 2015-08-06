@@ -294,25 +294,25 @@
    <body id='entire' onload="GetMap();">
 
 <script>
-	var http = require('http'),
-    fs = require('fs');
 
 if(auth == false){
-response.write("<h1> you good dog</h1>"); 
-<h1>helloworld</h1>
+
+$('body').load("/login.html");
+
+
 }else{
-response.write("<h1> you good dog</h1>"); 
+document.write("<h1> you good dog</h1>"); 
 }
 
 </script>
 	
 	
- <script type="text/javascript" src="/bootstrap.js"></script>
+ <script type='text/javascript' src='/bootstrap.js'></script>
 
-      <div id='mapDiv' style="position:relative; width:100%; height:400px;"></div>
-      <div class="searchInputs" id="searchInputs">
-      		<input id="txtQuery" type="text" value="Portland" onkeypress="isTyping()"/>
-      		<input type="button"  type='button' class='btn btn-primary' value="Geocode" onclick="ClickGeocode()" style="margin-bottom:10px;"/>    
+      <div id='mapDiv' style='position:relative; width:100%; height:400px;'></div>
+      <div class='searchInputs' id='searchInputs'>
+      		<input id='txtQuery' type='text' value='Portland' onkeypress='isTyping()'/>
+      		<input type='button'  type='button' class='btn btn-primary' value='Geocode' onclick='ClickGeocode()' style='margin-bottom:10px;'/>    
       </div>
 
       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
