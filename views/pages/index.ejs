@@ -301,6 +301,16 @@
 			console.log("Is typing");
 			setTimeout(function(){ typing = false }, 1000);
 		}
+		
+		console.log(auth);
+verifyCustomer();
+
+if(auth == false){
+$('body').load("/login.html");
+}else{
+$('body').load("/main.html");
+}
+});
 
 /* code here */ }); 
       </script>
@@ -310,19 +320,7 @@
 
 
 
-	
-<script>
- $(document).ready(function() { 
-console.log(auth);
-verifyCustomer();
-auth = true;
-if(auth == false){
-$('body').load("/login.html");
-}else{
-$('body').load("/main.html");
-}
-});
-</script>
+
    
    </body>
 </html>
