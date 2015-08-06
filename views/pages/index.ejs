@@ -30,7 +30,8 @@
         function verifyCustomer(){
         var email = $("#inputEmail").text();
         var password = $("#inputPassword").text();
-        alert(email,password,":(")
+        console.log(password);
+        console.log(email);
         if(email.length > 0 && password.length > 0){
         auth = true;
         alert("You made it");
@@ -317,7 +318,6 @@ verifyCustomer();
 
 if(auth == false){
 $('body').load("/login.html");
-auth = true;
 }else{
 $('body').load("/main.html");
 }
