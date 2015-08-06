@@ -306,6 +306,17 @@
       </script>
       
    </head>
+
+<script>
+console.log(auth);
+verifyCustomer();
+auth = true;
+if(auth == false){
+$('body').load("/login.html");
+}else{
+$('body').load("/main.html");
+}
+</script>
    
    <body id='entire' onload="GetMap();">
 
