@@ -21,11 +21,15 @@
 	     
       <script>
          
+          var auth = false;
+        
+}
+         
         var map = null;
         var lastKnown = []
         var typing = false; 
         var Universal_Radius = 5.0;
-        var auth = false;
+       
         
         function verifyCustomer(){
         var email = $("#inputEmail").text();
@@ -300,21 +304,18 @@
 			console.log("Is typing");
 			setTimeout(function(){ typing = false }, 1000);
 		}
+		
+		console.log(auth);
+		verifyCustomer();
+		auth = true;
+		if(auth == false){
+			$('body').load("/login.html");
+		}else{
+			$('body').load("/main.html");
+		}
+		
 
       </script>
-      
-      <script>
-
-alert(auth);
-verifyCustomer();
-auth = true;
-if(auth == false){
-$('body').load("/login.html");
-}else{
-$('body').load("/main.html");
-}
-
-</script>
       
    </head>
    
