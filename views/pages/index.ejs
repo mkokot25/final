@@ -6,6 +6,7 @@
 			<script type="text/javascript" src="/spin.js"></script>
 			<script src="/jquery-2.1.4.js"></script>
       <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+       <script type="text/javascript" src="/additionNumber.js"></script>
 	    <link href="/post.css" rel="stylesheet" type="text/css">
 	     <link href="/bootstrap.css" rel="stylesheet" type="text/css">
 	     
@@ -235,13 +236,13 @@
     		logo = "http://www.timothypflaniganmd.com/wp-content/uploads/2014/12/flickr-logo-transparent.png";
     		}
     		
-
-
+    	
 			var container = "<div class='container' id='container"+ i +"'></div>";
 			var main_image = "<div class='main_image'><img src='"+image+"' height='250px' width='100%'></img></div>";
 			var title = "<div class='box2'> "+ title +"</div>"
 			var userInfo = "<div class='line-separator'><div class='box3'><div 'margin-top:10px;'> <a href='"+name_link+"' target='_blank'>"+name+"</a> <br/> "+date+" </div><div class='datasource'><img src='"+logo+"' alt='' style='width:45px;height:45px;border:0;'></img></div><div class='comment'><a href='"+post_link+"' target='_blank' ><img src='https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/pencil.png' style='width:30px;height:30px;border:0;'/></a></div></div></div>";
 
+			
     		$("#geo").append(container);
     		$("#container"+i).append(main_image).append(title).append(userInfo);
 			
@@ -319,7 +320,20 @@
       <div id='mapDiv' style='position:relative; width:100%; height:400px;'></div>
       <div class='searchInputs' id='searchInputs'>
       		<input id='txtQuery' type='text' value='Portland' onkeypress='isTyping()'/>
-      		<input type='button'  type='button' class='btn btn-primary' value='Geocode' onclick='ClickGeocode()' style='margin-bottom:10px;'/>    
+      		<input type='button'  type='button' class='btn btn-primary' value='Geocode' onclick='ClickGeocode()' style='margin-bottom:10px;'/> 
+      		<div class="input-group">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+          <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
       </div>
 
       <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
