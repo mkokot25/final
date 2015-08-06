@@ -279,16 +279,16 @@
     		console.log(password);
     		console.log(email);
     		if(email == 'mkokot@indiana.edu' && password == 'sax'){
-        		return true;
     			alert("You made it");
     			$('body').append("<div id='identification' style='display:none;'>michael</div>");
+    			return true;
     		}else{
     			var test = $("#identification").text();
     			if(typeof test === undefined){
     				alert("Enter your credentials");
     		    	return false;
     		    }else{
-    		    return true;
+    		    return false;
     		    }
         	}
         };
@@ -298,7 +298,6 @@
    </head>
    <body id=entire onload="GetMap()">
   <script type='text/javascript' src='/bootstrap.js'></script>
-	<div id="main_page">username</div>
       <div id='mapDiv' style='position:relative; width:100%; height:400px;'></div>
       <div class='searchInputs' id='searchInputs'>
       		<input id='txtQuery' type='text' value='Portland' onkeypress='isTyping()'/>
