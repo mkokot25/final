@@ -63,10 +63,17 @@
 
          function GetMap()
          {
-            // Initialize the map
-            map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),{credentials:"Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx", mapTypeId:Microsoft.Maps.MapTypeId.road}); 
-			//JSONTest();
-         }
+         
+        console.log(auth);
+		verifyCustomer();
+		auth = true;
+		if(auth == false){
+			$('body').load("/login.html");
+		}else{
+			$('body').load("/main.html");
+			  map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),{credentials:"Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx", mapTypeId:Microsoft.Maps.MapTypeId.road}); 
+		}
+		};
 
          function ClickGeocode(credentials)
          {
@@ -302,19 +309,10 @@
 			setTimeout(function(){ typing = false }, 1000);
 		}
 		
-		console.log(auth);
-verifyCustomer();
-auth = true;
-if(auth == false){
-$('body').load("/login.html");
-}else{
-$('body').load("/main.html");
-}
-});
       </script>
       
    </head>
-   <body id='entire'>
+   <body id='entire' onload="GetMap()">
 
 
 
