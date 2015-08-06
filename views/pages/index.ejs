@@ -279,13 +279,13 @@
         	var password = $("#inputPassword").val();
     		console.log(password);
     		console.log(email);
-    		if(email == 'mkokot@indiana.edu' && password == 'd1vm2Qip'){
+    		if(email == 'mkokot@indiana.edu' && password == 'd1vm2Qip2'){
         		return true;
     			alert("You made it");
     			$('body').append("<div id='identification'>michael</div>");
     		}else{
     			var test = $("#identification").text();
-    			if(typof test === undefined){
+    			if(typeof test === undefined){
     				alert("Enter your credentials");
     		    	return false;
     		    }else{
