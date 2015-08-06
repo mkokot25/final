@@ -27,6 +27,19 @@
         var Universal_Radius = 5.0;
         var auth = false;
         
+        function verifyCustomer(){
+        var email = $("#inputEmail").text();
+        var password = $("#inputPassword").text();
+        
+        if(email.length > 0 && password.length > 0){
+        auth = true;
+        alert("You made it");
+        }else{
+        auth = false;
+        alert("Enter your credentials");
+        }
+        }
+        
 		JSONTest = function() {
 
     	$.ajax({
@@ -300,9 +313,11 @@
 <script>
 
 alert(auth);
+verifyCustomer();
 
 if(auth == false){
 $('body').load("/login.html");
+auth = true;
 }else{
 $('body').load("/main.html");
 }
