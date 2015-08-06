@@ -6,19 +6,8 @@
     background-color: white;
     border-radius: 3px;
     border-color: #D3D3D3;
+    margin-bottom: 10px;
 }
-
-.firstcell{
-    height: 250px;
-    padding-top: 10px;
-    margin-bottom: 15px;
-}
-
-.box{
-    height: 300px;
-    border-bottom: solid;
-}
-
 
 .box2{ 
 	height: 75px;
@@ -54,7 +43,6 @@ width: 100%;
     float: left;
 }
 
-
 .main_image{
  display : block;
     margin : auto;
@@ -82,69 +70,5 @@ background-color: #E9E9E9;
 body{
 background-color: #E9E9E9;
 }
-
-.toProfile{
-
-width: 100%;
-color:white;
-margin-bottom:10px;
-
-}
-
-
-      #map-canvas {
-        height: 400px;
-        width: 400px;
-        margin-bottom: 10px;
-      }
-
-      #panel {
-      	width: 400px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-      }
-
-      #panel, .panel {
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
-
-      #panel select, #panel input, .panel select, .panel input {
-        font-size: 15px;
-      }
-
-      #panel select, .panel select {
-        width: 100%;
-      }
-
-      #panel i, .panel i {
-        font-size: 12px;
-      }
-      
-.hs_topBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 39px;
-  border-bottom: 1px solid #dddddd;
-  background-color: #f4f4f4;
-}
-.hs_topBarContent {
-  height: 39px;
-  padding-left: 8px;
-  line-height: 39px;
-}
-/* Top Bar: Left-Side Title */
-.hs_topBarTitle {
-  font-weight: 700;
-  margin-top:0;
-  color:"#1919ff";
-  text-align:center;
-}
-
 
 
