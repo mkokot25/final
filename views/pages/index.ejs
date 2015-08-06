@@ -27,20 +27,6 @@
         var typing = false; 
         var Universal_Radius = 5.0;
        
-        
-        function verifyCustomer(){
-        var email = $("#inputEmail").text();
-        var password = $("#inputPassword").text();
-        console.log(password);
-        console.log(email);
-        if(email.length > 0 && password.length > 0){
-        auth = true;
-        alert("You made it");
-        }else{
-        auth = false;
-        alert("Enter your credentials");
-        }
-        }
 
          function GetMap()
          {
@@ -288,6 +274,20 @@
 			console.log("Is typing");
 			setTimeout(function(){ typing = false }, 1000);
 		}
+		
+		function verifyCustomer(){
+       	 	var email = $("#inputEmail").val();
+        	var password = $("#inputPassword").val();
+        	console.log(password);
+        	console.log(email);
+        	if(email.length > 0 && password.length > 0){
+        		auth = true;
+        		alert("You made it");
+        	}else{
+        		auth = false;
+        		alert("Enter your credentials");
+        	}
+        };
 		
       </script>
       
