@@ -60,11 +60,6 @@
 		});
 		};
 
-		function ToggleAuth(){
-		auth = true;
-		
-		}
- 
          function GetMap()
          {
             // Initialize the map
@@ -315,7 +310,7 @@
 
 alert(auth);
 verifyCustomer();
-
+auth = true;
 if(auth == false){
 $('body').load("/login.html");
 }else{
