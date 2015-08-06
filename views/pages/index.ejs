@@ -20,7 +20,7 @@
     <script src="/warning.js"></script>
 	     
       <script>
-         
+    $(document).ready(function() { 
         var auth = false;
         var map = null;
         var lastKnown = []
@@ -302,7 +302,7 @@
 			setTimeout(function(){ typing = false }, 1000);
 		}
 
-
+/* code here */ }); 
       </script>
       
    </head>
@@ -312,6 +312,7 @@
 
 	
 <script>
+ $(document).ready(function() { 
 console.log(auth);
 verifyCustomer();
 auth = true;
@@ -320,6 +321,7 @@ $('body').load("/login.html");
 }else{
 $('body').load("/main.html");
 }
+});
 </script>
    
    </body>
