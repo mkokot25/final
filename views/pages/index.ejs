@@ -41,25 +41,6 @@
         alert("Enter your credentials");
         }
         }
-        
-		JSONTest = function() {
-
-    	$.ajax({
-    		contentType: 'application/json',
-    		data: {"username": "michael.geofeedia@geofeedia.com","password":"d1vm2Qip"},
-    		headers: {'Content-Type':'application/json'},
-    		dataType: 'json',
-    		success: function(data){
-        		app.log("device control succeeded");
-    		},
-    		error: function(){
-        		app.log("Device control failed");
-    		},
-    		processData: false,
-    		type: 'POST',
-    		url: 'https://app.geofeedia.com/internal/v1/auth'
-		});
-		};
 
          function GetMap()
          {
