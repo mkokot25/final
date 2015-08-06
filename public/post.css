@@ -36,13 +36,14 @@ width: 100%;
 }
 
 .comment{
+	margin-top: -25px;
     width: 30px;
     float: right;
 }
 
 .datasource{
 	margin-left: -50px;
-	margin-top: -15px;
+	margin-top: -25px;
     float: left;
 }
 
