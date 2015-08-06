@@ -1,6 +1,6 @@
 .container{
     height: 400px;
-    width: 80%;
+    width: 90%;
     display : block;
     margin : auto;
     border-style: solid;
@@ -36,7 +36,7 @@ width: 100%;
 }
 
 .comment{
-    width: 40px;
+    width: 30px;
     float: right;
 }
 
@@ -50,6 +50,7 @@ width: 100%;
     margin : auto;
     width: 100%;
     height: auto;
+    max-height: 250px;
 }
 
 .logo { 
