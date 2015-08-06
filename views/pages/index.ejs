@@ -21,7 +21,6 @@
 	     
       <script>
 
-        var auth = false;
         var map = null;
         var lastKnown = []
         var typing = false; 
@@ -31,7 +30,7 @@
          {
          
         console.log(auth);
-		verifyCustomer();
+		auth = verifyCustomer();
 		
 		if(auth == false){
 			$('body').load("/login.html");
@@ -280,12 +279,18 @@
         	var password = $("#inputPassword").val();
     		console.log(password);
     		console.log(email);
-    		if(typeof email === 'undefined' && typeof password === 'undefined'){
-        		auth = false;
-    			alert("Enter your credentials");
+    		if(email == 'mkokot@indiana.edu' && password == 'd1vm2Qip'){
+        		return true;
+    			alert("You made it");
+    			$('body').append("<div id='identification'>michael</div>");
     		}else{
-    		    auth = true;
-        		alert("You made it");
+    			var test = $("#identification").text();
+    			if(typof test === undefined){
+    				alert("Enter your credentials");
+    		    	return false;
+    		    }else{
+    		    return true;
+    		    }
         	}
         };
 		
