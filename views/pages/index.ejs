@@ -46,6 +46,10 @@
 		});
 		};
 
+		ToggleAuth(){
+		auth = true;
+		
+		}
  
          function GetMap()
          {
@@ -299,48 +303,12 @@ if(auth == false){
 
 $('body').load("/login.html");
 
-
 }else{
-document.write("<h1> you good dog</h1>"); 
+$('body').load("/main.html");
 }
 
 </script>
 	
-	
- <script type='text/javascript' src='/bootstrap.js'></script>
-
-      <div id='mapDiv' style='position:relative; width:100%; height:400px;'></div>
-      <div class='searchInputs' id='searchInputs'>
-      		<input id='txtQuery' type='text' value='Portland' onkeypress='isTyping()'/>
-      		<input type='button'  type='button' class='btn btn-primary' value='Geocode' onclick='ClickGeocode()' style='margin-bottom:10px;'/>    
-      </div>
-
-      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-    <div id="geofeedia"><div id='geo'></div></div>
-    
-<script>
-hsp.init({apiKey:"e2weulwolrsw0ocwc404k4o8k3icmckml5k"});
-</script>
-		
-<script src="https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js"></script> 
-
-  <div class="modal fade" id="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title panel-danger">An Error Occurred</h4>
-      </div>
-      <div class="modal-body">
-        <p id="error_message">Please check your search address.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
    </body>
 </html>
