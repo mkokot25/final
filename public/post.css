@@ -37,7 +37,6 @@ margin-left:1px;
 background:#717171;
 border-bottom:1/2px solid #D3D3D3;
 width: 100%;
-
 }
 
 .box3 {
@@ -49,11 +48,9 @@ width: 100%;
 .comment{
     width: 40px;
     float: right;
-    margin-top: -15px;
 }
 
 .datasource{
-    margin-top: -25px;
     margin-left:-48px;
     float: left;
 }
@@ -67,7 +64,6 @@ width: 100%;
 }
 
 .logo { 
-        margin-top:-5px;
         width: auto;
         height: auto;
         max-height: 30px;
@@ -127,6 +123,7 @@ margin-bottom:10px;
       #panel i, .panel i {
         font-size: 12px;
       }
+      
 .hs_topBar {
   position: fixed;
   top: 0;
