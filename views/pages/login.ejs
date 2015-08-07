@@ -25,13 +25,14 @@
       <script>
 
 
-         function GetMap(){
+        function GetMap(){
          
-		auth = verifyCustomer();
+		var auth = verifyCustomer();
 		
 		if(auth == false){
 			alert("Please check your login credentials");
 		}else{
+			console.log("It should work :(");
 			window.location.replace("pages/index.ejs");
 		}
 		};
