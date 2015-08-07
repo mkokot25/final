@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title>Geofeedia</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<script type="text/javascript" src="/spin.js"></script>
+			<script src="/jquery-2.1.4.js"></script>
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+       <script type="text/javascript" src="/additionNumber.js"></script>
+	    <link href="/post.css" rel="stylesheet" type="text/css">
+	     <link href="/bootstrap.css" rel="stylesheet" type="text/css">
+	     
+	        <!-- Bootstrap core CSS -->
+    <link href="/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/warning.js"></script>
+	     
+      <script>
+
+
+         function GetMap(){
+         
+		auth = verifyCustomer();
+		
+		if(auth == false){
+			alert("Please check your login credentials");
+		}else{
+			window.location.replace("pages/index.ejs");
+		}
+		};
+
+		function verifyCustomer(){
+	
+       	 	var email = $("#inputEmail").val();
+        	var password = $("#inputPassword").val();
+    		console.log(password);
+    		console.log(email);
+    		var identity = getCookie("identity");
+    		if(identity.length > 0){
+    			return true;
+    		}else{
+    			if(email == 'mkokot@indiana.edu' && password == 'sax'){
+    				alert("You made it");
+    				setCookie("email",email,10);
+    				return true;
+    			}else{
+    				return false;
+        		}
+        	}
+        };
+        
+        function setCookie(cname, cvalue, exdays) {
+    		var d = new Date();
+    		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    		var expires = "expires="+d.toUTCString();
+    		document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+        
+        function getCookie(cname) {
+   			var name = cname + "=";
+    		var ca = document.cookie.split(';');
+    		for(var i=0; i<ca.length; i++) {
+        		var c = ca[i];
+        		while (c.charAt(0)==' ') c = c.substring(1);
+        		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    	}
+    	return "";
+		}
+        
+      </script>
+      
+   </head>
+   <body id="entire">
+   <div class="container">
+
+      <form class="form-signin">
+        <img class="form-signin-heading" src="https://geofeedia-wpengine.netdna-ssl.com/wp-content/themes/geofeedia/img/logo-geofeedia.png"></img>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <div class="checkbox">
+        </div>
+        <a href="https://secret-thicket-5835.herokuapp.com/login.ejs"><button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-bottom:20px;">Sign in</button></a>
+        <a href="http://resources.geofeedia.com/request-a-demo?utm_campaign=Request%20a%20Demo&utm_medium=Homepage%20Hero&utm_source=Website">No account? Request a demo.</a>
+      </form>
+      
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+<script>
+hsp.init({apiKey:"e2weulwolrsw0ocwc404k4o8k3icmckml5k"});
+</script>
+		
+<script src="https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js"></script> 
+    
+   
+
+   
+   </body>
+</html>
+    
+    
+    
+    
+    
+    
+    
+    
+
+

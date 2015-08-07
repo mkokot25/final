@@ -30,14 +30,8 @@
          function GetMap()
          {
          
-		auth = verifyCustomer();
-		auth = true;
-		if(auth == false){
-			$('body').load("/login.html");
-		}else{
 			map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),{credentials:"Ansr7k7sdmmW_DFB1q-vDmNbwNcqaHcW3cFr9eQLaWI1A85k27rtCJQaIBJo9JPx", mapTypeId:Microsoft.Maps.MapTypeId.road}); 
-		}
-		};
+		 };
 
          function ClickGeocode(credentials)
          {
@@ -274,26 +268,6 @@
 			setTimeout(function(){ typing = false }, 1000);
 		}
 		
-		function verifyCustomer(){
-	
-       	 	var email = $("#inputEmail").val();
-        	var password = $("#inputPassword").val();
-    		console.log(password);
-    		console.log(email);
-    		var identity = getCookie("identity");
-    		if(identity.length > 0){
-    			return true;
-    		}else{
-    			if(email == 'mkokot@indiana.edu' && password == 'sax'){
-    				alert("You made it");
-    				setCookie("email",email,10);
-    				return true;
-    			}else{
-    				return false;
-        		}
-        	}
-        };
-        
         function setCookie(cname, cvalue, exdays) {
     		var d = new Date();
     		d.setTime(d.getTime() + (exdays*24*60*60*1000));
