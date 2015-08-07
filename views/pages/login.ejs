@@ -33,7 +33,9 @@
 			alert("Please check your login credentials");
 		}else{
 			console.log("It should work :(");
- 			location.replace("http://www.w3schools.com")		}
+ 			location.replace("http://www.w3schools.com")		
+ 		}
+ 		return false;
 		};
 
 		function verifyCustomer(){
@@ -86,17 +88,12 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-        <div class="checkbox">
-        </div>
         <button class="btn btn-lg btn-primary btn-block" style="margin-bottom:20px;" onclick="GetMap()">Sign in</button>
-        <a href="http://resources.geofeedia.com/request-a-demo?utm_campaign=Request%20a%20Demo&utm_medium=Homepage%20Hero&utm_source=Website">No account? Request a demo.</a>
+        <a href="http://resources.geofeedia.com/request-a-demo?utm_campaign=Request%20a%20Demo&utm_medium=Homepage%20Hero&utm_source=Website" target="_blank">No account? Request a demo.</a>
       </form>
       
     </div> <!-- /container -->
 
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   
 <script>
 hsp.init({apiKey:"e2weulwolrsw0ocwc404k4o8k3icmckml5k"});
