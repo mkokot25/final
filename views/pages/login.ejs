@@ -33,7 +33,7 @@
 			alert("Please check your login credentials");
 		}else{
 			console.log("It should work :(");
- 			location.replace("http://www.w3schools.com")		
+			  window.location.href = "http://www.w3schools.com";	
  		}
  		return false;
 		};
@@ -88,7 +88,7 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-        <button class="btn btn-lg btn-primary btn-block" style="margin-bottom:20px;" onclick="GetMap()">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" style="margin-bottom:20px;" onclick="return GetMap()">Sign in</button>
         <a href="http://resources.geofeedia.com/request-a-demo?utm_campaign=Request%20a%20Demo&utm_medium=Homepage%20Hero&utm_source=Website" target="_blank">No account? Request a demo.</a>
       </form>
       
